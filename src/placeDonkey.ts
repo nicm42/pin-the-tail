@@ -16,13 +16,8 @@ const positionDonkey = (
   const rightMostPosition = pageWidth - donkeyWidth;
   const bottomMostPosition = pageHeight - donkeyHeight;
 
-  console.log(pageWidth, donkeyWidth);
-  console.log(rightMostPosition, bottomMostPosition);
-
   const leftPosition = random(leftMostPosition, rightMostPosition);
   const topPosition = random(topMostPosition, bottomMostPosition);
-
-  console.log(leftPosition, topPosition);
 
   donkey.style.left = leftPosition + 'px';
   donkey.style.top = topPosition + 'px';
@@ -50,7 +45,6 @@ const resizeDonkey = (
   window.addEventListener(
     'resize',
     _.debounce(() => {
-      console.log('re-positioning donkey: ', pageWidth, donkeyWidth);
       // Re-get page and donkey width and height
       donkeyWidth = donkey.clientWidth;
       donkeyHeight = donkey.clientHeight;
