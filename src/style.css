@@ -47,3 +47,7 @@ body {
   object-fit: cover;
   visibility: hidden;
 }
+
+.tail {
+  position: absolute;
+}

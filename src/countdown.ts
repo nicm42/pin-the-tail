@@ -1,12 +1,4 @@
-const showDonkey = () => {
-  const donkey = document.querySelector('.donkey') as HTMLElement;
-  donkey.style.visibility = 'visible';
-
-  setTimeout(() => {
-    donkey.style.visibility = 'hidden';
-    clearTimeout(this);
-  }, 1000);
-};
+import showDonkey from './showDonkey';
 
 const showCountdown = () => {
   const countdownElement = document.querySelector(
