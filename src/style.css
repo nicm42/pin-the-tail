@@ -32,9 +32,18 @@ body {
 
 body {
   position: relative;
+  overflow: hidden;
+}
+
+.centre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50%, -50%;
 }
 
 .donkey {
   position: absolute;
   object-fit: cover;
+  visibility: hidden;
 }
