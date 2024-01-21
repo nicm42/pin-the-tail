@@ -4,93 +4,146 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+  --countdown-time: 3;
+  --countdown-duration: 1000ms;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #3178c6aa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  --colour--light-green: hsl(143, 62%, 89%);
+  --colour--light-green-hover: hsl(143, 62%, 79%);
+  --colour--dark-green: hsl(186, 85%, 18%);
+  --colour--dark-green-hover: hsl(186, 85%, 28%);
+  --colour--white: rgba(255, 255, 255, 0.87);
+  --colour--black: #242424;
 }
 
 @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+  .element {
+    background-color: var(--colour--white);
+    color: var(--colour--black);
   }
-  a:hover {
-    color: #747bff;
-  }
+
   button {
-    background-color: #f9f9f9;
+    background-color: var(--colour--light-green);
+    color: var(--colour--black);
+    outline-color: var(--colour--white);
   }
+
+  button:hover,
+  button:focus {
+    background-color: var(--colour--light-green-hover);
+  }
+
+  dialog::backdrop {
+    background: rgb(0 0 0 / 75%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .element {
+    color: var(--colour--white);
+    background-color: var(--colour--black);
+  }
+
+  button {
+    background-color: var(--colour--dark-green);
+    color: var(--colour--white);
+    outline-color: var(--colour--white);
+  }
+
+  button:hover,
+  button:focus {
+    background-color: var(--colour--dark-green-hover);
+  }
+
+  dialog::backdrop {
+    background: rgb(255 255 255 / 75%);
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+.centre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50%;
+}
+
+.donkey {
+  position: absolute;
+  object-fit: cover;
+  visibility: hidden;
+}
+
+.tail {
+  position: absolute;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 500;
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: -4px;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  transition: background-color 250ms ease;
+}
+
+/* Countdown */
+/* Animation inspired by https://codepen.io/clein/pen/bqXYXy */
+.countdown {
+  animation: blur var(--countdown-duration) ease infinite;
+  animation-play-state: paused;
+  display: none;
+  font-family: 'Permanent Marker', sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+@keyframes blur {
+  0%,
+  100% {
+    filter: blur(0.5rem);
+  }
+  10%,
+  90% {
+    filter: blur(0.25rem);
+  }
+  50% {
+    filter: blur(0rem);
+  }
+}
+
+/* Dialog */
+dialog {
+  font-size: 1.5rem;
+  max-width: min(500px, 75%);
+  text-align: center;
+}
+
+dialog .title {
+  font-size: 1.75rem;
+}
+
+dialog .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }

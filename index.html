@@ -1,13 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/donkey16.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Pin the tail on the donkey</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <img class="donkey" src="/donkey-no-tail.png" alt="Donkey" />
+      <button class="start centre">Start</button>
+      <div class="countdown centre"></div>
+      <dialog>
+        <p class="title">Congratulations / Commiserations</p>
+        <p>
+          (depending on whether you intended to put the tail in the right place
+          or a funny place).
+        </p>
+        <p>Would you like to play again?</p>
+        <div class="buttons">
+          <button class="yes" autofocus>Yes</button>
+          <button class="no">No</button>
+        </div>
+      </dialog>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
