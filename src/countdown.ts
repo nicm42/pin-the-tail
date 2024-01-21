@@ -12,7 +12,13 @@ const showCountdown = () => {
   const countdownDuration = window
     .getComputedStyle(document.body)
     .getPropertyValue('--countdown-duration');
-  const countdownDurationNumber = Number(countdownDuration.replace(/\D/gm, ''));
+  // countdownDuration could be in seconds or milliseconds
+  // we need it to be in milliseconds
+  const countDownDurationTime = countdownDuration.replace(/\d/g, '');
+  let countdownDurationNumber = Number(countdownDuration.replace(/\D/g, ''));
+  if (countDownDurationTime === 's') {
+    countdownDurationNumber *= 1000;
+  }
 
   countdownElement.style.display = 'block';
   countdownElement.style.animationPlayState = 'running';
