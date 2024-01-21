@@ -37,6 +37,10 @@
   button:focus {
     background-color: var(--colour--light-green-hover);
   }
+
+  dialog::backdrop {
+    background: rgb(0 0 0 / 75%);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,6 +58,10 @@
   button:hover,
   button:focus {
     background-color: var(--colour--dark-green-hover);
+  }
+
+  dialog::backdrop {
+    background: rgb(255 255 255 / 75%);
   }
 }
 
@@ -120,4 +128,22 @@ button {
   50% {
     filter: blur(0rem);
   }
+}
+
+/* Dialog */
+dialog {
+  font-size: 1.5rem;
+  max-width: min(500px, 75%);
+  text-align: center;
+}
+
+dialog .title {
+  font-size: 1.75rem;
+}
+
+dialog .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
