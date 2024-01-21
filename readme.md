@@ -29,7 +29,7 @@ It only works if you use a mouse.
 
 ## Setup
 
-To view this project visit the demo TBC or download the files, open a terminal in that folder and install locally using npm:
+To view this project visit the [demo](https://pin-the-tail.pages.dev/) or download the files, open a terminal in that folder and install locally using npm:
 
 ```
 npm install
