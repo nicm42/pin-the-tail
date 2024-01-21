@@ -9,6 +9,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --countdown-time: 3;
+  --countdown-duration: 1000ms;
 }
 
 @media (prefers-color-scheme: light) {
@@ -39,7 +42,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  translate: -50%, -50%;
+  translate: -50%;
 }
 
 .donkey {
@@ -52,6 +55,27 @@ body {
   position: absolute;
 }
 
+/* Countdown */
+/* Animation inspired by https://codepen.io/clein/pen/bqXYXy */
 .countdown {
+  animation: blur var(--countdown-duration) ease infinite;
+  animation-play-state: paused;
   display: none;
+  font-family: 'Permanent Marker', sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+@keyframes blur {
+  0%,
+  100% {
+    filter: blur(0.5rem);
+  }
+  10%,
+  90% {
+    filter: blur(0.25rem);
+  }
+  50% {
+    filter: blur(0rem);
+  }
 }

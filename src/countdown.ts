@@ -4,21 +4,33 @@ const showCountdown = () => {
   const countdownElement = document.querySelector(
     '.countdown'
   ) as HTMLDivElement;
-  let countdownNumber: number = Number(countdownElement?.innerText);
+  let countdownNumber: number = Number(
+    window.getComputedStyle(document.body).getPropertyValue('--countdown-time')
+  );
+  countdownElement.innerText = countdownNumber.toString();
 
+  const countdownDuration = window
+    .getComputedStyle(document.body)
+    .getPropertyValue('--countdown-duration');
+  const countdownDurationNumber = Number(countdownDuration.replace(/\D/gm, ''));
+
+  countdownElement.style.display = 'block';
+  countdownElement.style.animationPlayState = 'running';
+
+  // Change the number every second
   const countdownTimer = setInterval(() => {
     countdownNumber -= 1;
     countdownElement.innerText = countdownNumber.toString();
-  }, 1000);
+  }, countdownDurationNumber);
 
-  countdownElement.style.display = 'block';
-
+  // After three seconds remove the number and show the donkey
   setTimeout(() => {
     clearInterval(countdownTimer);
     clearTimeout(this);
     countdownElement.style.display = 'none';
+    countdownElement.style.animationPlayState = 'paused';
     showDonkey();
-  }, 3000);
+  }, countdownNumber * 1000);
 };
 
 const countdown = () => {
