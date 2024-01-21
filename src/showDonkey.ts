@@ -8,7 +8,7 @@ const showDonkey = () => {
     clearTimeout(this);
     donkey.style.visibility = 'hidden';
     pinTail();
-  }, 50);
+  }, 5000);
 };
 
 export default showDonkey;
