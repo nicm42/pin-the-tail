@@ -12,19 +12,48 @@
 
   --countdown-time: 3;
   --countdown-duration: 1000ms;
+
+  --colour--light-green: hsl(143, 62%, 89%);
+  --colour--light-green-hover: hsl(143, 62%, 79%);
+  --colour--dark-green: hsl(186, 85%, 18%);
+  --colour--dark-green-hover: hsl(186, 85%, 28%);
+  --colour--white: rgba(255, 255, 255, 0.87);
+  --colour--black: #242424;
 }
 
 @media (prefers-color-scheme: light) {
   .element {
-    background-color: rgba(255, 255, 255, 0.87);
-    color: #242424;
+    background-color: var(--colour--white);
+    color: var(--colour--black);
+  }
+
+  button {
+    background-color: var(--colour--light-green);
+    color: var(--colour--black);
+    outline-color: var(--colour--white);
+  }
+
+  button:hover,
+  button:focus {
+    background-color: var(--colour--light-green-hover);
   }
 }
 
 @media (prefers-color-scheme: dark) {
   .element {
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    color: var(--colour--white);
+    background-color: var(--colour--black);
+  }
+
+  button {
+    background-color: var(--colour--dark-green);
+    color: var(--colour--white);
+    outline-color: var(--colour--white);
+  }
+
+  button:hover,
+  button:focus {
+    background-color: var(--colour--dark-green-hover);
   }
 }
 
@@ -53,6 +82,19 @@ body {
 
 .tail {
   position: absolute;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 500;
+  outline-width: 2px;
+  outline-style: solid;
+  outline-offset: -4px;
+  padding-block: 1rem;
+  padding-inline: 2rem;
+  transition: background-color 250ms ease;
 }
 
 /* Countdown */
