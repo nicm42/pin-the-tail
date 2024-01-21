@@ -11,17 +11,19 @@ const showCountdown = () => {
     countdownElement.innerText = countdownNumber.toString();
   }, 1000);
 
+  countdownElement.style.display = 'block';
+
   setTimeout(() => {
     clearInterval(countdownTimer);
     clearTimeout(this);
     countdownElement.style.display = 'none';
     showDonkey();
-    countdownElement.style.display = 'none';
   }, 3000);
 };
 
 const countdown = () => {
   const startButton = document.querySelector('.start') as HTMLButtonElement;
+  startButton.style.display = 'block';
 
   if (startButton) {
     startButton.addEventListener('click', () => {

@@ -1,8 +1,12 @@
+import showDialog from './showDialog';
+
 const placeTail = (event: MouseEvent) => {
   document.body.removeEventListener('click', placeTail, false);
 
   const donkey = document.querySelector('.donkey') as HTMLElement;
   const tail = document.createElement('img');
+  const donkeyTimeout = 250;
+  const dialogTImeout = donkeyTimeout + 1000;
 
   document.body.appendChild(tail);
   tail.src = '/tail.png';
@@ -15,6 +19,11 @@ const placeTail = (event: MouseEvent) => {
     clearTimeout(this);
     donkey.style.visibility = 'visible';
   }, 250);
+
+  setTimeout(() => {
+    clearTimeout(this);
+    showDialog();
+  }, dialogTImeout);
 };
 
 const pinTail = () => {

@@ -51,3 +51,7 @@ body {
 .tail {
   position: absolute;
 }
+
+.countdown {
+  display: none;
+}
