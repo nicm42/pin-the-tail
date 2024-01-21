@@ -15,6 +15,10 @@ const placeTail = (event: MouseEvent) => {
   tail.style.left = event.clientX + 'px';
   tail.style.top = event.clientY + 'px';
 
+  // Size tail to match donkey
+  const tailWidth = donkey.clientWidth * 0.42;
+  tail.style.width = tailWidth + 'px';
+
   setTimeout(() => {
     clearTimeout(this);
     donkey.style.visibility = 'visible';
